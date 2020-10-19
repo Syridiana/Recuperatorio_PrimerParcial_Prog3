@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "2289882d-a854-40e9-ae34-917b4af120e9",
+		"name": "P3 Parcial - Recuperatorio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "D",
+			"item": [
+				{
+					"name": "Punto 1 | admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "tipo",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}registro",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"registro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 1 | user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "tipo",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}registro",
+							"host": [
+								"{{url}}registro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}login",
+							"host": [
+								"{{url}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "marca",
+									"value": "honda",
+									"type": "text"
+								},
+								{
+									"key": "modelo",
+									"value": "2019",
+									"type": "text"
+								},
+								{
+									"key": "patente",
+									"value": "aaa124",
+									"type": "text"
+								},
+								{
+									"key": "precio",
+									"value": "500000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}vehiculo",
+							"host": [
+								"{{url}}vehiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}patente/aaa123",
+							"host": [
+								"{{url}}patente"
+							],
+							"path": [
+								"aaa123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 5",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "765",
+									"type": "text"
+								},
+								{
+									"key": "tipo",
+									"value": "20.000km",
+									"type": "text"
+								},
+								{
+									"key": "precio",
+									"value": "15000",
+									"type": "text"
+								},
+								{
+									"key": "demora",
+									"value": "3 dias",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}servicio",
+							"host": [
+								"{{url}}servicio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}turno?patente=aaa123&fecha=19/10/2020&tipoServicio=10.000km",
+							"host": [
+								"{{url}}turno"
+							],
+							"query": [
+								{
+									"key": "patente",
+									"value": "aaa123"
+								},
+								{
+									"key": "fecha",
+									"value": "19/10/2020"
+								},
+								{
+									"key": "tipoServicio",
+									"value": "10.000km"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 7",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tipoServicio",
+									"value": "10.000km",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "idTipoServicio",
+									"value": "567",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}stats",
+							"host": [
+								"{{url}}stats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
