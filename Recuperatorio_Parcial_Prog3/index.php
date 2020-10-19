@@ -111,6 +111,7 @@ switch ($method) {
 
                     if ($existe[0]) {
                         Usuario::guardarJson($usuario);
+                        echo "Usuario guardado.";
                     } else {
                         echo $existe[1];
                     }

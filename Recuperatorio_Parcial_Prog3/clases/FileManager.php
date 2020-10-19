@@ -50,7 +50,7 @@ class FileManager
             }
             fclose($archivo);
         } else {
-            echo 'El archivo no existe.<br/>';
+            echo 'El archivo no existe. Se ha creado uno nuevo en caso de ser posible.<br>';
         }
 
         return $lista;
