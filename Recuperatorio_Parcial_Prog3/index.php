@@ -118,7 +118,7 @@ switch ($method) {
                                 */
 
             default:
-                if (preg_match("/retiro/", $path_info)) {
+                if (preg_match("/patente/", $path_info)) {
 
                     if (Usuario::esUsuarioValido($token)) {
                         $path_explode = explode("/", $path_info);
