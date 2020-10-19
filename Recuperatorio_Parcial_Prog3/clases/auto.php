@@ -32,24 +32,22 @@ class Auto
 
     public static function autoEsValido($auto)
     {
-        //RTA ES UN ARRAY QUE TIENE UN CAMPO QUE ES TRUE POR DEFAULT
+     
         $rta = [true];
         if (
             !($auto->_marca == null) && !($auto->_modelo == null)
             && !($auto->_patente == null) && !($auto->_precio == null)
         ) {
             $autos = Auto::leerTxt(Auto::$_pathTxt);
-         //   var_dump($autos);
+
             foreach ($autos as $value) {
                 
-              //  var_dump($value);
                 if ($value->_patente == $auto->_patente) {
-                    //SI EL OBJETO SE REPITE ASIGNO MENSAJE AL SEGUNDO INDICE
+
                     $rta = [false, "Este auto ya está ingresado... No se guardó"];
                 }
             }
         } else {
-            //SI ALGUN CAMPO ESTÁ VACÍO ASIGNO MENSAJE AL SEGUNDO INDICE
             $rta = [false, "No se permiten campos vacíos"];
         }
         return $rta;

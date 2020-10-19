@@ -63,59 +63,7 @@ switch ($method) {
                     echo "No autorizado...";
                 }
                 break;
-                /*
-                            case '/importe/hora':
-                            
-
-
-                                    if (isset($_GET['fecha_inicio']) && isset($_GET['fecha_final'])) {
-                                        if (Usuario::esUsuarioValido($token) && Usuario::esAdmin($token))
-                                        {
-                                        
-                                                $fechaInicio = $_GET['fecha_inicio'];
-                                                $fechaFinal = $_GET['fecha_final'];
-                                                $monto = 0;
-                    
-                                                $listadoEgresos = Egresos::leerJson();
-                                                
-                                                $exploded_inicio = explode("/", $fechaInicio);
-                                                $exploded_final = explode("/", $fechaFinal);
-
-                                                $di=strtotime($exploded_inicio[1] . "/" . $exploded_inicio[0] . "/" . $exploded_inicio[2]);
-                                                $exploded_inicio = date ( "d-m-Y H", $di);
-
-                                                $df=strtotime($exploded_final[1] . "/" . $exploded_final[0] . "/" . $exploded_final[2]);
-                                                $exploded_final = date ( "d-m-Y H", $df);
-                    
-                                                foreach($listadoEgresos as $egreso)
-                                                {
-                                                    if($egreso->_fechaEgreso >= $exploded_inicio && $egreso->_fechaEgreso <= $exploded_final){
-                                                        $monto += $egreso->_monto;
-                                                    }
-                                                }
-                    
-                                            }else
-                                            {
-                        
-                                                echo "Usuario no valido.";
-                                            }
-                    
-                                            echo "Total cobrado entre ambas fechas: $" . $monto;
-                
-                                    } else
-                                    {
-                                        echo "$".Auto::importePorTipo(Precios::importePorTipo("hora"), "hora");
-                                    }
-                                
-
-                            break;
-                            case '/importe/estadia':
-                                echo "$".Auto::importePorTipo(Precios::importePorTipo("estadia"), "estadia");
-                            break;
-                            case '/importe/mensual':
-                                echo "$".Auto::importePorTipo(Precios::importePorTipo("mensual"), "mensual");
-                            break;
-                                */
+            
 
             default:
                 if (preg_match("/patente/", $path_info)) {
@@ -134,60 +82,7 @@ switch ($method) {
                             echo "No existe $plate";
                         }
 
-                        /*    $dateNow = date("d-m-Y H". ":00:00");
-                        $dateCar = $auto->_fechaIngreso; 
-
-
-
-                        $date1 = strtotime($dateNow);  
-                        $date2 = strtotime($dateCar);  
-
-
-                        $diff = abs($date2 - $date1);  
-                        
-                        
-
-                        $years = floor($diff / (365*60*60*24));  
-                        
-                        
-                        $months = floor(($diff - $years * 365*60*60*24) 
-                                                    / (30*60*60*24));  
-                        
-                        $days = floor(($diff - $years * 365*60*60*24 -  
-                                    $months*30*60*60*24)/ (60*60*24)); 
-                        
-
-                        $hours = floor(($diff - $years * 365*60*60*24  
-                            - $months*30*60*60*24 - $days*60*60*24) 
-                                                        / (60*60));  
-
-                        
-                        switch($auto->_tipoEstadia){
-                            case "hora":
-                            echo "Datos del auto: " .$auto . "</br>";
-                            $precios = Precios::leerJson();
-                            echo "Importe a abonar: $" . ($hours * $precios->_hora);
-                            $nuevoEgreso = new Egresos($auto->_patente, $auto->_tipoEstadia, $auto->_emailUsuario, $auto->_fechaIngreso, $dateNow, $hours * $precios->_hora);
-                            Egresos::guardarJson($nuevoEgreso);
-                            break;
-
-                            case "estadia":
-                                echo "Datos del auto: " .$auto . "</br>";
-                                $precios = Precios::leerJson();
-                                echo "Importe a abonar: $" . ($days * $precios->_estadia);
-                                $nuevoEgreso = new Egresos($auto->_patente, $auto->_tipoEstadia, $auto->_emailUsuario, $auto->_fechaIngreso, $dateNow, $days * $precios->_estadia);
-                                Egresos::guardarJson($nuevoEgreso);
-                            break;
-
-                            case "mensual":
-                                echo "Datos del auto: " .$auto . "</br>";
-                                $precios = Precios::leerJson();
-                                echo "Importe a abonar: $" . ($months * $precios->_mensual);
-                                $nuevoEgreso = new Egresos($auto->_patente, $auto->_tipoEstadia, $auto->_emailUsuario, $auto->_fechaIngreso, $dateNow, $months * $precios->_mensual);
-                                Egresos::guardarJson($nuevoEgreso);
-                            break;
-
-                        }*/
+              
                     } else {
                         echo "No autorizado...";
                     }
@@ -237,22 +132,6 @@ switch ($method) {
                 }
                 break;
 
-                /*  case '/precio':
-
-                if (Usuario::esUsuarioValido($token) && Usuario::esAdmin($token)) {
-
-
-                    $precios = new Precios($_POST['precio_hora'], $_POST['precio_estadia'], $_POST['precio_mensual']);
-                    $rta = Precios::estaSeteado($precios);
-                    if ($rta[0]) {
-                        Precios::sobreEscribirJson($precios);
-                    } else {
-                        echo $rta[1];
-                    }
-                } else {
-                    echo "No es administrador autorizado...";
-                }
-                break;*/
             case '/vehiculo':
 
                 if (Usuario::esUsuarioValido($token)) {
@@ -363,7 +242,7 @@ switch ($method) {
 
 
                      else {
-                        // $tipoServicio = $_POST['tipoServicio'];
+
 
                         $servicios = Servicio::leerJson();
                         foreach ($servicios as $value) {

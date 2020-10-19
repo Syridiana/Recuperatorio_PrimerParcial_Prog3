@@ -117,7 +117,6 @@ class Usuario
 
        $archivoArray = (array) FileManager::leerJson($path);
 
-      // var_dump($archivoArray);
 
        $listaUsuarios = [];
 
